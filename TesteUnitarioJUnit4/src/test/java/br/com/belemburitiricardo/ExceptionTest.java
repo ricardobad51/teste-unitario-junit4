@@ -1,11 +1,12 @@
 package br.com.belemburitiricardo;
 
-import java.util.ArrayList;
-import java.util.List;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
-import org.junit.Rule;
+import java.util.ArrayList;
+
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 public class ExceptionTest {
 	
@@ -16,17 +17,25 @@ public class ExceptionTest {
 	 * lista.get(0); }
 	 */
 
-	
-	@Rule
-	public ExpectedException thrown = ExpectedException.none();
-	
+	/*
+	 * @Rule public ExpectedException thrown = ExpectedException.none();
+	 * 
+	 * 
+	 * @Test public void shouldTestExceptionMessage() throws
+	 * IndexOutOfBoundsException{ List<Object> list = new ArrayList<Object>();
+	 * 
+	 * thrown.expect(IndexOutOfBoundsException.class);
+	 * thrown.expectMessage("Array vazio"); list.get(0); }
+	 */
 	
 	@Test
-	public void shouldTestExceptionMessage() throws IndexOutOfBoundsException{
-		List<Object> list = new ArrayList<Object>();
+	public void testExceptionMessage() {
 		
-		thrown.expect(IndexOutOfBoundsException.class);
-		thrown.expectMessage("Array vazio");
-		list.get(0);
+		try {
+			new ArrayList<Object>().get(0);
+			fail("Esperado que IndexOutOfBoundsException seja lançada");
+		}catch (IndexOutOfBoundsException e) {
+			assertThat(e.getMessage(), is("Index: 0, Size: 0"));
+		}
 	}
 }
