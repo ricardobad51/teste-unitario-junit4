@@ -21,9 +21,9 @@ public class CalculadoraTest {
 	public void testeSomarComMock() {
 		Calculadora calculadora = mock(Calculadora.class);
 		
-		when(calculadora.somar("1+2")).thenReturn(5);
+		when(calculadora.somar("1+2+2")).thenReturn(5);
 		
-		int resultado = calculadora.somar("1+2");
+		int resultado = calculadora.somar("1+2+2");
 		
 		assertEquals(5, resultado);
 	}
