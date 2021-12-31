@@ -1,6 +1,6 @@
 # teste-unitario-junit4
 
-## TDD (Test-driven development
+## TDD (Test-driven development)
 
 Teste Primeiro, Desenvolva Depois
 
